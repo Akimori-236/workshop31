@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Output } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Subject } from 'rxjs';
 
 const FRUITS: string[] = ["apple", "banana", "durian", "orange"]
 
@@ -11,14 +12,11 @@ const FRUITS: string[] = ["apple", "banana", "durian", "orange"]
 export class InventoryComponent {
   fruits = FRUITS
 
-  inventoryForm!: FormGroup
+  @Output()
+  onNewItem = new Subject<string>
 
-  constructor(private fb: FormBuilder) { }
-
-  ngOnInit(): void {
-    this.inventoryForm = this.fb.group({
-      email: this.fb.control<string>('', [Validators.required]),
-  })
+  addItem(itemName: string): void {
+    this.onNewItem.next(itemName)
   }
 
 }
