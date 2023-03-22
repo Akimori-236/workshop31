@@ -1,12 +1,14 @@
-<h1>Inventory</h1>
-<h2>Please Select</h2>
+<div class="container">
+  <h1>Inventory</h1>
+  <h2>Please Select</h2>
 
-<table>
-  <tr *ngFor="let f of fruits">
-    <td><img src="/assets/{{ f }}.jpg" height="50px;" /></td>
-    <td>
-      <span>{{ f | titlecase }}</span>
-    </td>
-    <td><button>Add</button></td>
-  </tr>
-</table>
+  <table>
+    <tr *ngFor="let f of fruits">
+      <td><img src="/assets/{{ f }}.jpg" height="50px;" /></td>
+      <td>
+        <span>{{ f | titlecase }}</span>
+      </td>
+      <td><button>Add</button></td>
+    </tr>
+  </table>
+</div>
